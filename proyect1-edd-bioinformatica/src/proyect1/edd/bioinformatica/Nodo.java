@@ -10,11 +10,12 @@ package proyect1.edd.bioinformatica;
  */
 public class Nodo {
     String clave;
-     // Falta una lista
+    Posiciones posiciones;
     Nodo siguiente;
 
     Nodo(String clave, int posicion) {
         this.clave = clave;
-        this.siguiente = null;
+        this.posiciones = new Posiciones();
+        this.posiciones.agregar(posicion);
     }
 }
