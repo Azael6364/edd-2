@@ -4,15 +4,19 @@
  */
 package proyect1.edd.bioinformatica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author adcd_
+ * @author Azael Zerpa
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form PantallaPrincipal
      */
+    
+    boolean cargado = false;
     public PantallaPrincipal() {
         initComponents();
     }
@@ -71,6 +75,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, -1, -1));
 
         mostrarReporte.setText("Mostrar reporte");
+        mostrarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarReporteActionPerformed(evt);
+            }
+        });
         jPanel1.add(mostrarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -85,6 +94,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         ListaAminoacidos.setText("Mostrar lista");
+        ListaAminoacidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaAminoacidosActionPerformed(evt);
+            }
+        });
         jPanel1.add(ListaAminoacidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -104,6 +118,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
         listaPatrones.setText("Mostrar lista");
+        listaPatrones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaPatronesActionPerformed(evt);
+            }
+        });
         jPanel1.add(listaPatrones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         menosFrecuentes.setText(" Patrón más frecuente");
@@ -119,6 +138,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, -1));
 
         Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 140, -1));
         jPanel1.add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 140, -1));
 
@@ -132,12 +156,56 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void masFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masFrecuenteActionPerformed
-        // TODO add your handling code here:
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            //
+        }
     }//GEN-LAST:event_masFrecuenteActionPerformed
 
     private void menosFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosFrecuentesActionPerformed
-        // TODO add your handling code here:
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            //
+        }
     }//GEN-LAST:event_menosFrecuentesActionPerformed
+
+    private void listaPatronesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPatronesActionPerformed
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            //
+        }
+    }//GEN-LAST:event_listaPatronesActionPerformed
+
+    private void mostrarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarReporteActionPerformed
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            //
+        }
+    }//GEN-LAST:event_mostrarReporteActionPerformed
+
+    private void ListaAminoacidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaAminoacidosActionPerformed
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            //
+        }
+    }//GEN-LAST:event_ListaAminoacidosActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        if (cargado==false){
+            JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
+        }else{
+            if(input.getText()==""){
+                JOptionPane.showMessageDialog(null, "Escriba algo en el buscador");
+            }else{
+                //
+            }
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
