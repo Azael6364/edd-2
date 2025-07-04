@@ -234,7 +234,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    System.out.println(linea);
+                    //System.out.println(linea);
+                    
+                    HashTable tabla = new HashTable(Math.round(linea.length()/3));
+                    
+                    for (int i = 0; i <= linea.length() - 3; i++) {
+                        String tripleta = linea.substring(i, i + 3);
+                        System.out.println(tripleta);
+                        tabla.insertar(tripleta, i);
+                    }
                 }
             } catch (IOException e) {
                 System.err.println("Error al leer el archivo: " + e.getMessage());
