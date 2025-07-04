@@ -27,15 +27,117 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultado = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        mostrarReporte = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        cargar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        ListaAminoacidos = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        masFrecuente = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        listaPatrones = new javax.swing.JButton();
+        menosFrecuentes = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        Buscar = new javax.swing.JButton();
+        input = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 510));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Resultado");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
+
+        resultado.setColumns(20);
+        resultado.setRows(5);
+        jScrollPane1.setViewportView(resultado);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 320, 370));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Azael Zerpa");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Identificar el:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, -1, -1));
+
+        mostrarReporte.setText("Mostrar reporte");
+        jPanel1.add(mostrarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Cargar Archivo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        cargar.setText("Cargar Archivo");
+        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Patrones almacenados:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
+        ListaAminoacidos.setText("Mostrar lista");
+        jPanel1.add(ListaAminoacidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Reporte de colisiones:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
+        masFrecuente.setText(" Patrón menos frecuente");
+        masFrecuente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masFrecuenteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(masFrecuente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Listar por cada aminoácido");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        listaPatrones.setText("Mostrar lista");
+        jPanel1.add(listaPatrones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+
+        menosFrecuentes.setText(" Patrón más frecuente");
+        menosFrecuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosFrecuentesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menosFrecuentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Identificar el:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, -1));
+
+        Buscar.setText("Buscar");
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 140, -1));
+        jPanel1.add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 140, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setText("Proyecto 2: Bioinformatica");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void masFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masFrecuenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_masFrecuenteActionPerformed
+
+    private void menosFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosFrecuentesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menosFrecuentesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,6 +175,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
+    private javax.swing.JButton ListaAminoacidos;
+    private javax.swing.JButton cargar;
+    private javax.swing.JTextField input;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton listaPatrones;
+    private javax.swing.JButton masFrecuente;
+    private javax.swing.JButton menosFrecuentes;
+    private javax.swing.JButton mostrarReporte;
+    private javax.swing.JTextArea resultado;
     // End of variables declaration//GEN-END:variables
 }
