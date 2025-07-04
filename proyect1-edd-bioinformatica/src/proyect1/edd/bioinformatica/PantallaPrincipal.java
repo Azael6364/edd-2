@@ -212,10 +212,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            if(input.getText()==""){
+            String clave = input.getText().trim();
+            if (clave.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Escriba algo en el buscador");
-            }else{
-                //
+            } else {
+                Posiciones r = tabla.obtener(clave);
+
+                if (r == null) {
+                    resultado.setText("No se consiguió");
+                } else {
+                    int[] posiciones = r.obtenerTodas();
+                    String texto = "Posiciones:\n";
+                    for (int i = 0; i < posiciones.length; i++) {
+                        texto += posiciones[i];
+                        if (i < posiciones.length - 1) texto += ", ";
+                    }
+                    resultado.setText(texto);
+                }
             }
         }
     }//GEN-LAST:event_BuscarActionPerformed
