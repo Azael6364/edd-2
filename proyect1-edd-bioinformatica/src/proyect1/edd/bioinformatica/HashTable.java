@@ -56,6 +56,72 @@ public class HashTable {
 
         return null;
     }
+    
+    
+    public String mostrarOrdenadoPorFrecuencia() {
+        int total = 0;
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                total++;
+                actual = actual.siguiente;
+            }
+        }
+        
+        
+        String[] claves = new String[total];
+        int[] frecuencias = new int[total];
+        int[][] posiciones = new int[total][];
+        int index = 0;
+
+        // Llenamos los arreglos
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                claves[index] = actual.clave;
+                frecuencias[index] = actual.posiciones.getTamaño();
+                posiciones[index] = actual.posiciones.obtenerTodas();
+                index++;
+                actual = actual.siguiente;
+            }
+        }
+
+        // Ordenamos por frecuencia (burbuja, por simplicidad)
+        for (int i = 0; i < total - 1; i++) {
+            for (int j = 0; j < total - i - 1; j++) {
+                if (frecuencias[j] < frecuencias[j + 1]) {
+                    // Intercambiar frecuencia
+                    int tempF = frecuencias[j];
+                    frecuencias[j] = frecuencias[j + 1];
+                    frecuencias[j + 1] = tempF;
+
+                    // Intercambiar clave
+                    String tempC = claves[j];
+                    claves[j] = claves[j + 1];
+                    claves[j + 1] = tempC;
+
+                    // Intercambiar posiciones
+                    int[] tempP = posiciones[j];
+                    posiciones[j] = posiciones[j + 1];
+                    posiciones[j + 1] = tempP;
+                }
+            }
+        }
+
+        String resultado = "";
+        for (int i = 0; i < total; i++) {
+            //System.out.print("Tripleta: " + claves[i] + " Frecuencia: " + frecuencias[i] + " Posiciones: ");
+            resultado += "Tripleta: " + claves[i] + "\n - Frecuencia: " + frecuencias[i] + " - Posiciones: ";
+            for (int j = 0; j < posiciones[i].length; j++) {
+                //System.out.print(posiciones[i][j]);
+                resultado += posiciones[i][j] + ", ";
+            }
+            resultado += "\n\n";
+            //System.out.println();
+        }
+        
+        return resultado;
+    }
 
    
 }

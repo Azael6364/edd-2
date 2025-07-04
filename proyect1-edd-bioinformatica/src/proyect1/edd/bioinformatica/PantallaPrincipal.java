@@ -22,6 +22,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      * Creates new form PantallaPrincipal
      */
     
+    HashTable tabla = null;
     boolean cargado = false;
     public PantallaPrincipal() {
         initComponents();
@@ -186,7 +187,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            //
+            String r = tabla.mostrarOrdenadoPorFrecuencia();
+            resultado.setText(r);
         }
     }//GEN-LAST:event_listaPatronesActionPerformed
 
@@ -236,7 +238,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 while ((linea = br.readLine()) != null) {
                     //System.out.println(linea);
                     
-                    HashTable tabla = new HashTable(Math.round(linea.length()/3));
+                    tabla = new HashTable(Math.round(linea.length()/3));
                     
                     for (int i = 0; i <= linea.length() - 3; i++) {
                         String tripleta = linea.substring(i, i + 3);
@@ -244,6 +246,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         tabla.insertar(tripleta, i);
                     }
                 }
+                cargado=true;
             } catch (IOException e) {
                 System.err.println("Error al leer el archivo: " + e.getMessage());
             }
