@@ -5,7 +5,9 @@
 package proyect1.edd.bioinformatica;
 
 /**
- *
+ * Clase que implementa una tabla de dispersión para almacenar tripletas de ADN
+ * junto con las posiciones en las que aparecen en una secuencia.
+ * 
  * @author Azael Zerpa
  */
 public class HashTable {
@@ -13,11 +15,23 @@ public class HashTable {
     private Nodo[] tabla;
     private int capacidad;
     
+    /**
+     * Constructor de la tabla hash.
+     *
+     * @param capacidad el tamaño inicial del arreglo de dispersión
+    */
     public HashTable(int capacidad) {
         this.capacidad = capacidad;
         this.tabla = new Nodo[capacidad];
     }
 
+    
+    /**
+     * Función hash que convierte una cadena en un índice para la tabla.
+     *
+     * @param clave la tripleta que se desea dispersar
+     * @return índice correspondiente en la tabla
+     */
     private int hash(String clave) {
         int hash = 0;
         for (char c : clave.toCharArray()) {
@@ -26,6 +40,13 @@ public class HashTable {
         return hash;
     }
 
+    /**
+     * Inserta una tripleta en la tabla junto con su posición dentro de la secuencia original.
+     * Si la clave ya existe, se añade la nueva posición a la lista.
+     *
+     * @param clave    la tripleta de ADN
+     * @param posicion la posición donde se encuentra dicha tripleta
+     */
     public void insertar(String clave, int posicion) {
         int indice = hash(clave);
         Nodo actual = tabla[indice];
@@ -42,7 +63,13 @@ public class HashTable {
         nuevo.siguiente = tabla[indice];
         tabla[indice] = nuevo;
     }
-
+    
+    /**
+     * Busca una tripleta en la tabla y retorna las posiciones donde fue encontrada.
+     *
+     * @param clave la tripleta a buscar
+     * @return estructura Posiciones con las apariciones encontradas, o null si no existe
+     */
     public Posiciones obtener(String clave) {
         int indice = hash(clave);
         Nodo actual = tabla[indice];
@@ -57,7 +84,11 @@ public class HashTable {
         return null;
     }
     
-    
+    /**
+     * Genera un listado de todas las tripletas ordenadas de mayor a menor frecuencia.
+     *
+     * @return cadena con tripletas, frecuencia y posiciones
+     */
     public String mostrarOrdenadoPorFrecuencia() {
         int total = 0;
         for (int i = 0; i < capacidad; i++) {
@@ -123,7 +154,11 @@ public class HashTable {
         return resultado;
     }
     
-    
+    /**
+     * Retorna las tripletas con menor frecuencia de aparición.
+     *
+     * @return cadena con tripletas y su frecuencia mínima
+     */
     public String mostrarPatronMenosFrecuente() {
         int total = 0;
         for (int i = 0; i < capacidad; i++) {
@@ -171,7 +206,11 @@ public class HashTable {
         return resultado;
     }
     
-    
+    /**
+     * Retorna las tripletas con mayor frecuencia de aparición.
+     *
+     * @return cadena con tripletas y su frecuencia máxima
+     */
     public String mostrarPatronMasFrecuente() {
         int total = 0;
         for (int i = 0; i < capacidad; i++) {
@@ -219,6 +258,11 @@ public class HashTable {
         return resultado;
     }
    
+    /**
+     * Genera un reporte de colisiones entre claves distintas que cayeron en el mismo índice de la tabla.
+     *
+     * @return cadena con el detalle de las colisiones encontradas
+     */
     public String reporteColisionesPorClaveDistinta() {
         String resultado = "Reporte de colisiones entre tripletas distintas: \n";
         int totalColisiones = 0;
@@ -252,6 +296,13 @@ public class HashTable {
         return resultado;
     }
 
+    /**
+     * Genera una lista por aminoácido, listando las tripletas que lo codifican,
+     * su frecuencia de aparición, y también indica las tripletas no válidas.
+     *
+     * @param aminoacidos arreglo personalizado con todos los aminoácidos y sus tripletas asociadas
+     * @return cadena con el detalle del reporte por aminoácido
+     */
     public String mostrarReporteAminoacidos(Aminoacido[] aminoacidos) {
         String resultado = "Reporte por aminoácido:\n";
 
