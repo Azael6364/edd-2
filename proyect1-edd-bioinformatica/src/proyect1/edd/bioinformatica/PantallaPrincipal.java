@@ -198,7 +198,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            //
+            String r = tabla.reporteColisionesPorClaveDistinta();
+            resultado.setText(r);
         }
     }//GEN-LAST:event_mostrarReporteActionPerformed
 

@@ -219,4 +219,36 @@ public class HashTable {
         return resultado;
     }
    
+    public String reporteColisionesPorClaveDistinta() {
+        String resultado = "Reporte de colisiones entre tripletas distintas: \n";
+        int totalColisiones = 0;
+
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+
+            // Si hay más de un nodo en esta posición, puede haber colisión
+            if (actual != null && actual.siguiente != null) {
+                Nodo externo = actual;
+                while (externo != null) {
+                    Nodo interno = externo.siguiente;
+                    while (interno != null) {
+                        if (!externo.clave.equals(interno.clave)) {
+                            resultado += "Índice " + i + ": \"" + externo.clave + "\" colisionó con \"" + interno.clave + "\" \n";
+                            totalColisiones++;
+                        }
+                        interno = interno.siguiente;
+                    }
+                    externo = externo.siguiente;
+                }
+            }
+        }
+
+        if (totalColisiones == 0) {
+            resultado += "\n No se detectaron colisiones entre tripletas distintas.";
+        } else {
+            resultado += "\n Total de colisiones entre claves distintas: " + totalColisiones;
+        }
+        
+        return resultado;
+    }
 }
