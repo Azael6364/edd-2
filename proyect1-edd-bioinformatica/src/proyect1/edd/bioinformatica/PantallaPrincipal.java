@@ -218,7 +218,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             if (clave.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Escriba algo en el buscador");
             } else {
-                Posiciones r = tabla.obtener(clave);
+                Posiciones r = tabla.obtener(clave.toUpperCase());
 
                 if (r == null) {
                     resultado.setText("No se consiguió");
