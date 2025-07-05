@@ -24,6 +24,31 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     HashTable tabla = null;
     boolean cargado = false;
+    
+    Aminoacido[] aminoacidos = {
+        new Aminoacido("Fenilalanina", new String[]{"TTT", "TTC"}),
+        new Aminoacido("Leucina", new String[]{"TTA", "TTG", "CTT", "CTC", "CTA", "CTG"}),
+        new Aminoacido("Isoleucina", new String[]{"ATT", "ATC", "ATA"}),
+        new Aminoacido("Metionina (Inicio)", new String[]{"ATG"}),
+        new Aminoacido("Valina", new String[]{"GTT", "GTC", "GTA", "GTG"}),
+        new Aminoacido("Serina", new String[]{"TCT", "TCC", "TCA", "TCG", "AGT", "AGC"}),
+        new Aminoacido("Prolina", new String[]{"CCT", "CCC", "CCA", "CCG"}),
+        new Aminoacido("Treonina", new String[]{"ACT", "ACC", "ACA", "ACG"}),
+        new Aminoacido("Alanina", new String[]{"GCT", "GCC", "GCA", "GCG"}),
+        new Aminoacido("Tirosina", new String[]{"TAT", "TAC"}),
+        new Aminoacido("Histidina", new String[]{"CAT", "CAC"}),
+        new Aminoacido("Glutamina", new String[]{"CAA", "CAG"}),
+        new Aminoacido("Asparagina", new String[]{"AAT", "AAC"}),
+        new Aminoacido("Lisina", new String[]{"AAA", "AAG"}),
+        new Aminoacido("Ácido Aspártico", new String[]{"GAT", "GAC"}),
+        new Aminoacido("Ácido Glutámico", new String[]{"GAA", "GAG"}),
+        new Aminoacido("Cisteína", new String[]{"TGT", "TGC"}),
+        new Aminoacido("Triptófano", new String[]{"TGG"}),
+        new Aminoacido("Arginina", new String[]{"CGT", "CGC", "CGA", "CGG", "AGA", "AGG"}),
+        new Aminoacido("Glicina", new String[]{"GGT", "GGC", "GGA", "GGG"}),
+        new Aminoacido("Parada", new String[]{"TAA", "TAG", "TGA"})
+    };
+    
     public PantallaPrincipal() {
         initComponents();
     }
@@ -207,7 +232,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            //
+            String r = tabla.mostrarReporteAminoacidos(aminoacidos);
+            resultado.setText(r);
         }
     }//GEN-LAST:event_ListaAminoacidosActionPerformed
 

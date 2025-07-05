@@ -251,4 +251,52 @@ public class HashTable {
         
         return resultado;
     }
+
+    public String mostrarReporteAminoacidos(Aminoacido[] aminoacidos) {
+        String resultado = "Reporte por aminoácido:\n";
+
+        for (int i = 0; i < aminoacidos.length; i++) {
+            Aminoacido a = aminoacidos[i];
+            resultado += "Aminoácido: " + a.nombre;
+
+            for (int j = 0; j < a.tripletas.length; j++) {
+                String tripleta = a.tripletas[j];
+                Posiciones p = this.obtener(tripleta);
+                int frecuencia = (p != null) ? p.getTamaño() : 0;
+                resultado += "  Tripleta: " + tripleta + " - Frecuencia: " + frecuencia + "\n";
+            }
+
+            
+        }
+
+        resultado += "\n\n\nTripletas no válidas:";
+        for (int i = 0; i < this.capacidad; i++) {
+            Nodo actual = this.tabla[i];
+            while (actual != null) {
+                boolean valida = false;
+
+                for (int x = 0; x < aminoacidos.length; x++) {
+                    for (int y = 0; y < aminoacidos[x].tripletas.length; y++) {
+                        if (actual.clave.equals(aminoacidos[x].tripletas[y])) {
+                            valida = true;
+                            break;
+                        }
+                    }
+                    if (valida){
+                        break;
+                    }
+                }
+
+                if (!valida) {
+                    resultado += "  Tripleta: " + actual.clave + " - Frecuencia: " + actual.posiciones.getTamaño();
+                }
+
+                actual = actual.siguiente;
+            }
+        }
+        
+        return resultado;
+    }
+
+
 }
