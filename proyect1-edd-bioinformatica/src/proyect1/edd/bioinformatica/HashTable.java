@@ -122,6 +122,101 @@ public class HashTable {
         
         return resultado;
     }
+    
+    
+    public String mostrarPatronMenosFrecuente() {
+        int total = 0;
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                total++;
+                actual = actual.siguiente;
+            }
+        }
+        
+        
+        String[] claves = new String[total];
+        int[] frecuencias = new int[total];
+        int[][] posiciones = new int[total][];
+        int index = 0;
 
+        // Llenamos los arreglos
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                claves[index] = actual.clave;
+                frecuencias[index] = actual.posiciones.getTamaño();
+                posiciones[index] = actual.posiciones.obtenerTodas();
+                index++;
+                actual = actual.siguiente;
+            }
+        }
+
+        int minFrecuencia = Integer.MAX_VALUE;
+        for (int i = 0; i < total; i++) {
+            if (frecuencias[i] < minFrecuencia) {
+                minFrecuencia = frecuencias[i];
+            }
+        }
+
+        String resultado = "Patrón(es) menos frecuente(s): \n";
+        for (int i = 0; i < total; i++) {
+            if (frecuencias[i] == minFrecuencia) {
+                resultado += ("Tripleta: " + claves[i] + " - Frecuencia: " + frecuencias[i] + "\n");
+            }
+        }
+
+        
+        
+        return resultado;
+    }
+    
+    
+    public String mostrarPatronMasFrecuente() {
+        int total = 0;
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                total++;
+                actual = actual.siguiente;
+            }
+        }
+        
+        
+        String[] claves = new String[total];
+        int[] frecuencias = new int[total];
+        int[][] posiciones = new int[total][];
+        int index = 0;
+
+        // Llenamos los arreglos
+        for (int i = 0; i < capacidad; i++) {
+            Nodo actual = tabla[i];
+            while (actual != null) {
+                claves[index] = actual.clave;
+                frecuencias[index] = actual.posiciones.getTamaño();
+                posiciones[index] = actual.posiciones.obtenerTodas();
+                index++;
+                actual = actual.siguiente;
+            }
+        }
+
+        int maxFrecuencia = Integer.MIN_VALUE;
+        for (int i = 0; i < total; i++) {
+            if (frecuencias[i] > maxFrecuencia) {
+                maxFrecuencia = frecuencias[i];
+            }
+        }
+
+        String resultado = "Patrón(es) mas frecuente(s): \n";
+        for (int i = 0; i < total; i++) {
+            if (frecuencias[i] == maxFrecuencia) {
+                resultado += ("Tripleta: " + claves[i] + " - Frecuencia: " + frecuencias[i] + "\n");
+            }
+        }
+
+        
+        
+        return resultado;
+    }
    
 }

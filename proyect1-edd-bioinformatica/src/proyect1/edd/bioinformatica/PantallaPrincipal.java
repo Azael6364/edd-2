@@ -117,7 +117,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel6.setText("Reporte de colisiones:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
-        masFrecuente.setText(" Patrón menos frecuente");
+        masFrecuente.setText(" Patrón mas frecuente");
         masFrecuente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 masFrecuenteActionPerformed(evt);
@@ -137,7 +137,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(listaPatrones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        menosFrecuentes.setText(" Patrón más frecuente");
+        menosFrecuentes.setText(" Patrón menos frecuente");
         menosFrecuentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menosFrecuentesActionPerformed(evt);
@@ -171,7 +171,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            //
+            String r = tabla.mostrarPatronMenosFrecuente();
+            resultado.setText(r);
         }
     }//GEN-LAST:event_masFrecuenteActionPerformed
 
@@ -179,7 +180,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         if (cargado==false){
             JOptionPane.showMessageDialog(null, "Debe cargar un archivo antes");
         }else{
-            //
+            String r = tabla.mostrarPatronMenosFrecuente();
+            resultado.setText(r);
         }
     }//GEN-LAST:event_menosFrecuentesActionPerformed
 
